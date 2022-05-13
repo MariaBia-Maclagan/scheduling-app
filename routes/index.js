@@ -31,6 +31,22 @@ router.get("/hours/:week/:employee", (req, res) => {
   .catch(err => res.status(500).send(err));
 });
 
+router.get("/hours/:date", (req, res) => {
+  db(`SELECT * FROM schedule WHERE week=${req.params.date}";`) 
+  .then(results =>{
+    res.send(results.data);
+  })
+  .catch(err => res.status(500).send(err));
+});
+
+router.get("/hours/:date/:employee", (req, res) => {
+  db(`SELECT * FROM schedule WHERE week=${req.params.date} && employee="${req.params.employee}";`) 
+  .then(results =>{
+    res.send(results.data);
+  })
+  .catch(err => res.status(500).send(err));
+});
+
 router.post("/hours", (req, res) => {
   const {week, employee, start, finish, hour, day, date } = req.body;
   db(`INSERT into schedule (week, employee, start, finish, hour, day, date) VALUES("${week}", "${employee}","${start}","${finish}","${hour}","${day}","${date}")`)
@@ -44,13 +60,14 @@ router.delete("/hours/:id", async (req, res) => {
   const weekId = await db(`SELECT week FROM schedule WHERE id=${req.params.id};`)
 //  (results => { // reutun id from that week
 //    JSON.stringify(results)}) 
-const results = JSON.stringify(weekId.data);
+const results = JSON.stringify(weekId.data[0]["week"]);
 console.log(weekId.data, results)
  await 
   db(`DELETE FROM schedule WHERE id=${req.params.id};`)// return 
-  await db(`SElECT * FROM schedule WHERE  week="${results[0]["week"]}";`)
+  await db(`SElECT * FROM schedule WHERE  week="${results}";`)
   .then(result =>{
     res.send(result.data);
   })
+  .catch(err => res.status(500).send(err));
 });
 module.exports = router;
