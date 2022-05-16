@@ -17,7 +17,6 @@ let [weekInput, setWeekInput] = useState ({week:""});
         setWeekInput("");
     }
     const getWeekSchedule =(week) => {
-        //console.log(week)
         fetch(`/hours/${week}`)
         .then(res => res.json())
         .then( response => {
@@ -25,6 +24,19 @@ let [weekInput, setWeekInput] = useState ({week:""});
         })
         
         .catch(e => console.log(e));
+    }
+
+    const handleDelete = (schedule) =>{
+       fetch(`/hours/${schedule.id}`, {
+           method: "DELETE",
+           headers:{
+            "Content-Type": "application/json"
+           }
+       }) 
+       .then(res => res.json())
+       .then(response => {setSchedule(response)})
+
+       .catch(e => console.log(e));
     }
     
 
@@ -47,7 +59,9 @@ let [weekInput, setWeekInput] = useState ({week:""});
                     return(
                         <li key={hour.id}>
                             {hour.week}
+                            <button type="submit" onClick={()=>handleDelete(schedule)}> delete </button>
                         </li>
+                        
                     )
                 })}
             </ul>

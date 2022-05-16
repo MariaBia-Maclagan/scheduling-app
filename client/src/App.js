@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Admin from './Admin';
 import Adminview from './Adminview';
 import User from './User';
@@ -7,9 +7,19 @@ import './App.css';
 function App() {
 let [schedule, setSchedule] = useState ([]);
 
-const handleSchedule = (newSchedule) =>{
-  setSchedule((...oldSchedule) =>[...oldSchedule, newSchedule])
-};
+useEffect(()=>{
+  getSchedule();
+
+}, []);
+
+const getSchedule= () =>{
+  fetch("/hours")
+  .then(res => res.json())
+  .then(fullSchedule =>{
+    setSchedule(fullSchedule)
+  })
+  .catch(e =>{console.log(e)})
+}
 
   return (
     <div >
@@ -18,7 +28,7 @@ const handleSchedule = (newSchedule) =>{
         <button>User</button>
        <h1>Scheduling App</h1>
       </header>
-      <Admin addSchedule={(newSchedule) => handleSchedule(newSchedule)}/>
+      <Admin addSchedule={setSchedule}/>
       <Adminview schedule={schedule} setSchedule={setSchedule}/> 
     </div>
   );
