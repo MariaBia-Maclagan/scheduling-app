@@ -18,7 +18,7 @@ con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
 
-  let sql = "DROP TABLE if exists schedule; CREATE TABLE schedule(id INT NOT NULL AUTO_INCREMENT, week INT not null, employee VARCHAR(40) not null, start VARCHAR(20) not null, finish VARCHAR(20) not null, hour DECIMAL(19, 2) not null, day VARCHAR(40) not null, date DATE not null, PRIMARY KEY (id));";
+  let sql = "DROP TABLE if exists schedule; CREATE TABLE schedule(id INT NOT NULL AUTO_INCREMENT, week INT not null, employee VARCHAR(40) not null, start VARCHAR(20) not null, finish VARCHAR(20) not null, hour DECIMAL(19, 2) not null, day VARCHAR(40) not null, date VARCHAR(40) not null, PRIMARY KEY (id));";
   con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("Table creation `schedule` was successful!");

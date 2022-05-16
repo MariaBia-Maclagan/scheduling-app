@@ -31,21 +31,21 @@ router.get("/hours/:week/:employee", (req, res) => {
   .catch(err => res.status(500).send(err));
 });
 
-router.get("/hours/:date", (req, res) => {
-  db(`SELECT * FROM schedule WHERE week=${req.params.date}";`) 
-  .then(results =>{
-    res.send(results.data);
-  })
-  .catch(err => res.status(500).send(err));
-});
+// router.get("/hours/:date", (req, res) => {
+//   db(`SELECT * FROM schedule WHERE date="${req.params.date}";`) 
+//   .then(results =>{
+//     res.send(results.data);
+//   })
+//   .catch(err => res.status(500).send(err));
+// });
 
-router.get("/hours/:date/:employee", (req, res) => {
-  db(`SELECT * FROM schedule WHERE week=${req.params.date} && employee="${req.params.employee}";`) 
-  .then(results =>{
-    res.send(results.data);
-  })
-  .catch(err => res.status(500).send(err));
-});
+// router.get("/hours/:date/:employee", (req, res) => {
+//   db(`SELECT * FROM schedule WHERE date="${req.params.date}" && employee="${req.params.employee}";`) 
+//   .then(results =>{
+//     res.send(results.data);
+//   })
+//   .catch(err => res.status(500).send(err));
+// });
 
 router.post("/hours", (req, res) => {
   const {week, employee, start, finish, hour, day, date } = req.body;

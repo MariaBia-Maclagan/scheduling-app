@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Admin from './Admin';
+import Adminview from './Adminview';
 import User from './User';
 import './App.css';
 
 function App() {
+let [schedule, setSchedule] = useState ([]);
+
   return (
     <div >
       <header >
@@ -11,8 +14,9 @@ function App() {
         <button>User</button>
        <h1>Scheduling App</h1>
       </header>
-      <Admin/>
-      <User/>
+      <Admin addSchedule={setSchedule}/>
+      {/* <Adminview/>
+      <User/> */}
     </div>
   );
 }

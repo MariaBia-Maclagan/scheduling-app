@@ -1,16 +1,14 @@
 import React from "react";
 import './App.css';
 
-
-export default function User(){
+export default function Adminview(){
     return(
         <div>
             <form>
-                <label>Date</label>
+                <label>Week</label>
                 <input type="text" name="week" value="" placehoder="1"></input>
-                <label>Employee</label>
             </form>
-            <button>View Schedule</button>
+            <button> View Schedule </button>
         </div>
-    );
+    )
 }
