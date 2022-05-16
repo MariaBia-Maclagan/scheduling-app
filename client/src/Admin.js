@@ -3,23 +3,24 @@ import './App.css';
 
 
 export default function Admin({addSchedule}){
-let [input, setInput] = useState({
+   const initialInput ={
     week:"",
     day:"",
     date:"",
     employee:"",
     start:"",
     finish:"",
-    hours:""
-});
+    hour:""
+   } 
+let [input, setInput] = useState(initialInput);
 
 const handleChange = event =>{
     const value = event.target.value;
-    const name = event.target.value;
+    const name = event.target.name;
 
     setInput(oldSchedule =>{
         return{
-            ...oldSchedule,
+            ...oldSchedule, 
             [name]: value
         };
     });
@@ -28,25 +29,20 @@ const handleChange = event =>{
 const handleSubmit = event =>{
     event.preventDefault();
     postSchedule();
-    setInput({
-        week:"",
-        day:"",
-        date:"",
-        employee:"",
-        start:"",
-        finish:"",
-        hours:""
-    })
+    setInput(initialInput);
 
 };
 
 const postSchedule = () => {
+    let copyInput = {...input}
+    copyInput.hour = Number(input.hour) 
     fetch("/hours", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(input)
+        body: JSON.stringify(copyInput)
+
       })
       .then(response => response.json())
       .then(updatedSchedule => {
@@ -61,8 +57,8 @@ const postSchedule = () => {
             <div className="col-md-4">
                 <label>Week</label><br/>
                 <input onChange={handleChange}
-                value={input.week} 
                 name="week"  
+                value={input.week} 
                 placehoder="1" 
                 type="text"></input>
             </div>
@@ -70,7 +66,7 @@ const postSchedule = () => {
             <div className="col-md-4">
                 <label>Day</label><br/>
                 <input onChange={handleChange} 
-
+                value={input.day} 
                 name="day"  
                 placehoder="Sunday" 
                 type="text"></input>
@@ -79,7 +75,7 @@ const postSchedule = () => {
             <div className="col-md-4">
                 <label>Date</label><br/>
                 <input onChange={handleChange} 
-
+                value={input.date}
                 name="date" 
                 placehoder="17-May" 
                 type="text"></input>
@@ -88,7 +84,7 @@ const postSchedule = () => {
             <div className="col-12">
                 <label>Employee</label><br/>
                 <input onChange={handleChange} 
-
+                value={input.employee}
                 name="employee"  
                 placehoder="Suzi" 
                 type="text" ></input>
@@ -97,7 +93,7 @@ const postSchedule = () => {
             <div className="col-md-4">
                 <label>Start</label><br/>
                 <input onChange={handleChange} 
-
+                value={input.start}
                 name="start"  
                 placehoder="9:30" 
                 type="text"></input>
@@ -106,7 +102,7 @@ const postSchedule = () => {
             <div className="col-md-4">
                 <label>Finish</label><br/>
                 <input onChange={handleChange} 
-
+                value={input.finish}
                 name="finish"  
                 placehoder="17:30" 
                 type="text"></input>
@@ -115,10 +111,10 @@ const postSchedule = () => {
             <div className="col-md-4">
                 <label>Hours</label><br/>
                 <input onChange={handleChange} 
-
-                name="hours"  
+                value={input.hour}
+                name="hour"  
                 placehoder="8" 
-                type="text"></input>
+                type="number"></input>
              </div>
 
              <div>
