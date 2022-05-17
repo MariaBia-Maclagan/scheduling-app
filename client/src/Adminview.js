@@ -41,9 +41,9 @@ let [weekInput, setWeekInput] = useState ({week:""});
     
 
     return(
-        <div>
+        <div className="form">
             <hr />
-            <div className="ms-5 mt-5">
+            <div className="mt-5">
             <form className="row row-cols-lg-auto g-3 align-items-center ">
                 <div className="col-6">
                 <label className="form-label">Week</label>
@@ -64,17 +64,17 @@ let [weekInput, setWeekInput] = useState ({week:""});
            </div>
    
            
-            <ul>
+            <div>
                 {schedule.map(hour =>{
                     return(
-                        <li key={hour.id}>
+                        <div key={hour.id}>
                             {hour.week}
                             <button  type="submit" onClick={()=>handleDelete(hour.id)}> delete </button>
-                        </li>
+                        </div>
                         
                     )
                 })}
-            </ul>
+            </div>
         </div>
     )
 }
