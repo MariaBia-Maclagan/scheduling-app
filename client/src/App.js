@@ -6,6 +6,7 @@ import './App.css';
 
 function App() {
 let [schedule, setSchedule] = useState ([]);
+let [isAdmin, setIsAdmin] = useState (true);
 
 useEffect(()=>{
   getSchedule();
@@ -21,15 +22,25 @@ const getSchedule= () =>{
   .catch(e =>{console.log(e)})
 }
 
+const handleChangeView =(isAdmin) => {
+  setIsAdmin(isAdmin);
+}
+
   return (
     <div >
       <header >
-        <button>Admin</button>
-        <button>User</button>
-       <h1>Scheduling App</h1>
+        <div className="text-end me-3 mt-3">
+        
+        <button onClick={() => handleChangeView(true)} className = { isAdmin ? "btn btn-danger btn-sm" : "btn btn-secondary btn-sm "} >Admin</button>
+       
+        <button onClick={() => handleChangeView(false)} className={ !isAdmin ? "btn btn-danger btn-sm" : "btn btn-secondary btn-sm" }>User</button>
+       
+        </div>
+       <h1 className="text-center mt-5 mb-5">Scheduling App</h1>
       </header>
-      <Admin addSchedule={setSchedule}/>
-      <Adminview schedule={schedule} setSchedule={setSchedule}/> 
+      {/* {isAdmin? : <User/>} */}
+     <Admin addSchedule={setSchedule}/>  <Adminview schedule={schedule} setSchedule={setSchedule}/>  
+     
     </div>
   );
 }

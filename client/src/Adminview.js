@@ -6,7 +6,7 @@ let [weekInput, setWeekInput] = useState ({week:""});
 
 
     const handleSearch= (event) => {
-        console.log(schedule)
+        // console.log(schedule)
         setWeekInput(event.target.value)
         
     };
@@ -26,8 +26,8 @@ let [weekInput, setWeekInput] = useState ({week:""});
         .catch(e => console.log(e));
     }
 
-    const handleDelete = (schedule) =>{
-       fetch(`/hours/${schedule.id}`, {
+    const handleDelete = (id) =>{
+       fetch(`/hours/${id}`, {
            method: "DELETE",
            headers:{
             "Content-Type": "application/json"
@@ -42,16 +42,26 @@ let [weekInput, setWeekInput] = useState ({week:""});
 
     return(
         <div>
-            <form>
-                <label>Week</label>
-                <input onChange={handleSearch} 
+            <hr />
+            <div className="ms-5 mt-5">
+            <form className="row row-cols-lg-auto g-3 align-items-center ">
+                <div className="col-6">
+                <label className="form-label">Week</label>
+                <div className="input-group">
+
+                <input className="form-control"
+                onChange={handleSearch} 
                 value={weekInput} 
                 type="number" 
                 name="week" 
                 placehoder="1"></input>
+                </div>
+                </div>
             </form>
-
-           <button type="submit" onClick={() => handleGet(weekInput)}> View Schedule </button>
+                <div className="col-6">
+                <button className="btn btn-secondary mt-3 mb-3" type="submit" onClick={() => handleGet(weekInput)}> View Schedule </button>
+                </div>
+           </div>
    
            
             <ul>
@@ -59,7 +69,7 @@ let [weekInput, setWeekInput] = useState ({week:""});
                     return(
                         <li key={hour.id}>
                             {hour.week}
-                            <button type="submit" onClick={()=>handleDelete(schedule)}> delete </button>
+                            <button  type="submit" onClick={()=>handleDelete(hour.id)}> delete </button>
                         </li>
                         
                     )

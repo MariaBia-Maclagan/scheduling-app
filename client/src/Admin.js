@@ -53,72 +53,79 @@ const postSchedule = () => {
 }
 
     return(
-        <div className="row g-3">
+        <div className="row g-3 form">
             <div className="col-md-4">
-                <label>Week</label><br/>
-                <input onChange={handleChange}
+                <label className="form-label">Week</label><br/>
+                <input className="form-control"
+                onChange={handleChange}
                 name="week"  
                 value={input.week} 
-                placehoder="1" 
-                type="text"></input>
+                placeholder="1" 
+                type="number"></input>
             </div>
 
             <div className="col-md-4">
-                <label>Day</label><br/>
-                <input onChange={handleChange} 
+                <label className="form-label">Day</label><br/>
+                <input className="form-control"
+                onChange={handleChange} 
                 value={input.day} 
                 name="day"  
-                placehoder="Sunday" 
+                placeholder="Sunday" 
                 type="text"></input>
             </div>
 
             <div className="col-md-4">
-                <label>Date</label><br/>
-                <input onChange={handleChange} 
+                <label className="form-label">Date</label><br/>
+                <input className="form-control"
+                onChange={handleChange} 
                 value={input.date}
                 name="date" 
-                placehoder="17-May" 
+                placeholder="17-May" 
                 type="text"></input>
             </div>
 
             <div className="col-12">
-                <label>Employee</label><br/>
-                <input onChange={handleChange} 
+                <label className="form-label">Employee</label><br/>
+                <input className="form-control"
+                onChange={handleChange} 
                 value={input.employee}
                 name="employee"  
-                placehoder="Suzi" 
+                placeholder="Maria" 
                 type="text" ></input>
             </div>
 
             <div className="col-md-4">
-                <label>Start</label><br/>
-                <input onChange={handleChange} 
+                <label className="form-label">Start</label><br/>
+                <input className="form-control"
+                onChange={handleChange} 
                 value={input.start}
                 name="start"  
-                placehoder="9:30" 
+                placeholder="9:30" 
                 type="text"></input>
             </div>
 
             <div className="col-md-4">
-                <label>Finish</label><br/>
-                <input onChange={handleChange} 
+                <label className="form-label">Finish</label><br/>
+                <input className="form-control"
+                onChange={handleChange} 
                 value={input.finish}
                 name="finish"  
-                placehoder="17:30" 
+                placeholder="17:30" 
                 type="text"></input>
             </div>
 
             <div className="col-md-4">
-                <label>Hours</label><br/>
-                <input onChange={handleChange} 
+                <label className="form-label">Hours</label><br/>
+                <input className="form-control"
+                onChange={handleChange} 
                 value={input.hour}
                 name="hour"  
-                placehoder="8" 
+                placeholder="8"
                 type="number"></input>
              </div>
 
              <div>
-            <button type="submit" onClick={handleSubmit}>Submit</button>
+            <button className="btn btn-secondary"type="submit" onClick={handleSubmit}>Submit</button>
             </div>
         </div>
     );
