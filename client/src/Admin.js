@@ -81,7 +81,7 @@ const postSchedule = () => {
                 value={input.date}
                 name="date" 
                 placeholder="17-May" 
-                type="text"></input>
+                type="date"></input>
             </div>
 
             <div className="col-12">

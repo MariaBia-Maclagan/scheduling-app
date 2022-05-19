@@ -1,9 +1,8 @@
-import React, {useState} from "react";
+import React, { useEffect, useState} from "react";
 import './App.css';
 
 export default function Adminview({schedule, setSchedule}){
 let [weekInput, setWeekInput] = useState ({week:""});
-
 
     const handleSearch= (event) => {
         // console.log(schedule)
@@ -44,37 +43,65 @@ let [weekInput, setWeekInput] = useState ({week:""});
         <div className="form">
             <hr />
             <div className="mt-5">
-            <form className="row row-cols-lg-auto g-3 align-items-center ">
-                <div className="col-6">
-                <label className="form-label">Week</label>
+               
                 <div className="input-group">
-
+                <div className="input-group-text">Week</div>
                 <input className="form-control"
                 onChange={handleSearch} 
                 value={weekInput} 
                 type="number" 
                 name="week" 
-                placehoder="1"></input>
+                placeholder="1"
+                aria-describedby="button-addon2"
+                ></input>
+                
+                <button id="button-addon2"className="btn btn-secondary mt-3 mb-3" type="submit" onClick={() => handleGet(weekInput)}> View Schedule </button>
                 </div>
-                </div>
-            </form>
-                <div className="col-6">
-                <button className="btn btn-secondary mt-3 mb-3" type="submit" onClick={() => handleGet(weekInput)}> View Schedule </button>
-                </div>
+                
            </div>
-   
            
-            <div>
-                {schedule.map(hour =>{
+
+           <table className="table table-bordered table-hover mt-5">
+        <thead>
+         
+          <th>Sun</th>
+          
+          <th>Mon</th>
+         
+          <th>Tue</th>
+          
+          <th>Wed</th>
+         
+          <th>Thu</th>
+        
+          <th>Fri</th>
+        
+          <th>Sat</th>
+         
+        </thead>
+        <tbody>
+           {
+                   schedule.map(hour =>{
                     return(
                         <div key={hour.id}>
-                            {hour.week}
-                            <button  type="submit" onClick={()=>handleDelete(hour.id)}> delete </button>
-                        </div>
+                            
+                        <tr >
+                            <td>{hour.employee} <br/>
+                            Start: {hour.start} <br/> Finish: {hour.finish} 
+                            <br/>Hours: {hour.hour}
+                            <br/>
+                            <button  type="submit" onClick={()=>handleDelete(hour.id)}> delete </button></td>
+                            
+                        </tr>
                         
-                    )
+                        </div>
+                    );
                 })}
-            </div>
+                
+        </tbody>
+        </table>
+        
         </div>
-    )
+        
+    );
 }
