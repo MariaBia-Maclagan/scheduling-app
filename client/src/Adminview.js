@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from "react";
+import React, {useState} from "react";
 import './App.css';
 
 export default function Adminview({schedule, setSchedule}){
@@ -37,7 +37,7 @@ let [weekInput, setWeekInput] = useState ({week:""});
 
        .catch(e => console.log(e));
     }
-    
+
 
     return(
         <div className="form">
@@ -60,47 +60,38 @@ let [weekInput, setWeekInput] = useState ({week:""});
                 
            </div>
            
-
-           <table className="table table-bordered table-hover mt-5">
-        <thead>
-         
-          <th>Sun</th>
-          
-          <th>Mon</th>
-         
-          <th>Tue</th>
-          
-          <th>Wed</th>
-         
-          <th>Thu</th>
-        
-          <th>Fri</th>
-        
-          <th>Sat</th>
-         
-        </thead>
-        <tbody>
-           {
-                   schedule.map(hour =>{
-                    return(
-                        <div key={hour.id}>
-                            
-                        <tr >
-                            <td>{hour.employee} <br/>
+     
+        <div className="container mt-5">
+            <div className="row">
+           {  schedule.map(hour =>{
+                    return(   
+                        <div  className="col-2" key={hour.id}>
+                            <div className="mb-2">{hour.day}</div>
+                            <div className="mb-1">{hour.employee}<br/>
                             Start: {hour.start} <br/> Finish: {hour.finish} 
                             <br/>Hours: {hour.hour}
                             <br/>
-                            <button  type="submit" onClick={()=>handleDelete(hour.id)}> delete </button></td>
-                            
-                        </tr>
-                        
-                        </div>
+                            <button  type="submit" onClick={()=>handleDelete(hour.id)}> delete </button>
+                            </div>
+                            </div>
                     );
                 })}
+                {/* { schedule.filter(item => item.day ="Monday").map(hour =>{
+                    return(
+                        <tr key={hour.id}>
+                            <th>Mon</th>
+                        <td>{hour.employee} {hour.day}<br/>
+                        Start: {hour.start} <br/> Finish: {hour.finish} 
+                        <br/>Hours: {hour.hour}
+                        <br/>
+                        <button  type="submit" onClick={()=>handleDelete(hour.id)}> delete </button></td>
+                        
+                    </tr>
+                    );
+                })} */}
                 
-        </tbody>
-        </table>
-        
+        </div>
+        </div>
         </div>
         
     );

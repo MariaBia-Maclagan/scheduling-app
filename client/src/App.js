@@ -26,6 +26,8 @@ const handleChangeView =(isAdmin) => {
   setIsAdmin(isAdmin);
 }
 
+
+
   return (
     <div >
       <header >
@@ -40,7 +42,7 @@ const handleChangeView =(isAdmin) => {
       </header>
       
      {isAdmin ? <Admin addSchedule={setSchedule}/> : <User schedule={schedule}/>  } 
-     {isAdmin ? <Adminview schedule={schedule} setSchedule={setSchedule}/> : ""}
+     {isAdmin ? <Adminview schedule={schedule} setSchedule={setSchedule} /> : ""}
      
     </div>
   );
