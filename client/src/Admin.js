@@ -61,7 +61,7 @@ const postSchedule = () => {
                 name="week"  
                 value={input.week} 
                 placeholder="1" 
-                type="number"></input>
+                type="number"/>
             </div>
 
             <div className="col-md-4">
@@ -70,8 +70,8 @@ const postSchedule = () => {
                 onChange={handleChange} 
                 value={input.day} 
                 name="day"  
-                placeholder="Sunday" 
-                type="text"></input>
+                placeholder="Sun" 
+                type="text"/>
             </div>
 
             <div className="col-md-4">
@@ -80,8 +80,8 @@ const postSchedule = () => {
                 onChange={handleChange} 
                 value={input.date}
                 name="date" 
-                placeholder="17-May" 
-                type="date"></input>
+                 
+                type="date"/>
             </div>
 
             <div className="col-12">
@@ -91,7 +91,7 @@ const postSchedule = () => {
                 value={input.employee}
                 name="employee"  
                 placeholder="Maria" 
-                type="text" ></input>
+                type="text" />
             </div>
 
             <div className="col-md-4">
@@ -101,7 +101,7 @@ const postSchedule = () => {
                 value={input.start}
                 name="start"  
                 placeholder="9:30" 
-                type="text"></input>
+                type="text"/>
             </div>
 
             <div className="col-md-4">
@@ -111,7 +111,7 @@ const postSchedule = () => {
                 value={input.finish}
                 name="finish"  
                 placeholder="17:30" 
-                type="text"></input>
+                type="text"/>
             </div>
 
             <div className="col-md-4">
@@ -121,7 +121,7 @@ const postSchedule = () => {
                 value={input.hour}
                 name="hour"  
                 placeholder="8"
-                type="number"></input>
+                type="number"/>
              </div>
 
              <div>

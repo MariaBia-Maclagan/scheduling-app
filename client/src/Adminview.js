@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+
 import './App.css';
 
 export default function Adminview({schedule, setSchedule}){
@@ -61,19 +62,18 @@ let [weekInput, setWeekInput] = useState ({week:""});
            </div>
            
      
-        <div className="container mt-5">
-            <div className="row">
+        <div className="container mt-5 ">
+            <div className="row ">
            {  schedule.map(hour =>{
                     return(   
-                        <div  className="col-2" key={hour.id}>
-                            <div className="mb-2">{hour.day}</div>
-                            <div className="mb-1">{hour.employee}<br/>
-                            Start: {hour.start} <br/> Finish: {hour.finish} 
-                            <br/>Hours: {hour.hour}
-                            <br/>
-                            <button  type="submit" onClick={()=>handleDelete(hour.id)}> delete </button>
+                        <div  className="col border rounded " key={hour.id}>
+                            <div className="mb-2 border-bottom">{hour.day} </div>
+                            <div className="mb-1">{hour.employee}<br/></div>
+                            <div>Start: {hour.start} <br/> Finish: {hour.finish} </div>
+                            <div className="mb-1">Hours: {hour.hour}</div>
+                            <button className="btn btn-outline-secondary btn-sm mb-2 " type="submit" onClick={()=>handleDelete(hour.id)}> delete </button>
                             </div>
-                            </div>
+                            
                     );
                 })}
                 {/* { schedule.filter(item => item.day ="Monday").map(hour =>{

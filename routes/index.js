@@ -16,7 +16,7 @@ router.get("/hours", (req, res) =>{
 });
 
 router.get("/hours/:week", (req, res) => {
-  db(`SELECT * FROM schedule WHERE week=${req.params.week} ORDER BY date;`) 
+  db(`SELECT * FROM schedule WHERE week=${req.params.week}; `) 
   .then(results =>{
     res.send(results.data);
   })
