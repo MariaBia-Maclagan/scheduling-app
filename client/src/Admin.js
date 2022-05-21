@@ -127,6 +127,7 @@ const postSchedule = () => {
              <div>
             <button className="btn btn-secondary mb-5"type="submit" onClick={handleSubmit}>Add Schedule</button>
             </div>
+            <hr />
         </div>
     );
 }

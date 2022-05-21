@@ -41,9 +41,7 @@ let [weekInput, setWeekInput] = useState ({week:""});
 
 
     return(
-        <div className="form">
-            <hr />
-            <div className="mt-5">
+        <div className="form mt-5 week">
                
                 <div className="input-group">
                 <div className="input-group-text">Week</div>
@@ -52,12 +50,10 @@ let [weekInput, setWeekInput] = useState ({week:""});
                 value={weekInput} 
                 type="number" 
                 name="week" 
-                placeholder="1"
-                aria-describedby="button-addon2"
-                ></input>
+                placeholder="1" />
                 
-                <button id="button-addon2"className="btn btn-secondary mt-3 mb-3" type="submit" onClick={() => handleGet(weekInput)}> View Schedule </button>
-                </div>
+                <button className="btn btn-secondary" type="submit" onClick={() => handleGet(weekInput)}> View Schedule </button>
+                
                 
            </div>
            
@@ -70,7 +66,7 @@ let [weekInput, setWeekInput] = useState ({week:""});
                             <div className="mb-2 border-bottom">{hour.day} </div>
                             <div className="mb-1">{hour.employee}<br/></div>
                             <div>Start: {hour.start} <br/> Finish: {hour.finish} </div>
-                            <div className="mb-1">Hours: {hour.hour}</div>
+                            <div className="mb-1">Hrs: {hour.hour}</div>
                             <button className="btn btn-outline-secondary btn-sm mb-2 " type="submit" onClick={()=>handleDelete(hour.id)}> delete </button>
                             </div>
                             
