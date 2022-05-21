@@ -41,8 +41,8 @@ let [weekInput, setWeekInput] = useState ({week:""});
 
 
     return(
-        <div className="form mt-5 week">
-               
+        <div className=" mt-5">
+               <div className="week">
                 <div className="input-group">
                 <div className="input-group-text">Week</div>
                 <input className="form-control"
@@ -53,7 +53,7 @@ let [weekInput, setWeekInput] = useState ({week:""});
                 placeholder="1" />
                 
                 <button className="btn btn-secondary" type="submit" onClick={() => handleGet(weekInput)}> View Schedule </button>
-                
+                </div>
                 
            </div>
            
