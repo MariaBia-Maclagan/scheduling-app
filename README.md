@@ -1,6 +1,6 @@
 # scheduling-app
 
-The scheduling app is for a store manager to organise staff shifts throughout the week form sun to sat. From the admin component the user will be able to post each employee time for each day of the week in sequence. From the Adminview component the user can delete individual staff times if needed and view shedule for an specific week.
+The scheduling app is for a store manager to organise staff shifts throughout the week from Sunday (Sun) to Saturday (Sat). From the admin component the user will be able to post each employee time for each day of the week in sequence. From the Adminview component the user can delete individual staff times if needed and view schedule for an specific week.
 Other users should be able to only view the schedule times once posted in a separated user view.
 
 # To run the app

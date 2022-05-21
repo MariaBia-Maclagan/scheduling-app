@@ -25,10 +25,10 @@ const getWeekSchedule =(week) => {
 }
     
     return(
-        <div className="form">
-        <hr />
-        <div className="mt-5">
-        <form className="input-group">
+        <div >
+        <hr className="form"/>
+        <div className="mt-5 week">
+        <div className="input-group">
        
                 <div className="input-group-text">Week</div>
                 <input className="form-control"
@@ -37,10 +37,10 @@ const getWeekSchedule =(week) => {
                 type="number" 
                 name="week" 
                 placeholder="1" />
-        <button className="btn btn-secondary" type="submit" onClick={handleUserGet}> View Schedule </button>
-        </form>
-             
-        {/* <div className="container mt-5 ">
+        <button className="btn btn-primary" type="submit" onClick={handleUserGet}> View Schedule </button>
+        </div>
+        </div>
+        <div className="container rounded mt-5 ">
             <div className="row ">
            {  schedule.map(hour =>{
                     return(   
@@ -49,16 +49,15 @@ const getWeekSchedule =(week) => {
                             <div className="mb-1">{hour.employee}<br/></div>
                             <div><strong>Start:</strong> {hour.start} <br/> <strong>Finish:</strong> {hour.finish} </div>
                             <div className="mb-3"><strong>Hrs:</strong> {hour.hour}</div>
-                            <button className="btn btn-outline-secondary btn-sm mb-2 " type="submit" onClick={()=>handleDelete(hour.id)}> delete </button>
                             </div>
                             
                     );
-                })} */}
-
-       </div>
-
+                })}
 
        
+
+</div>
+       </div>
        </div>
        
     );

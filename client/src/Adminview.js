@@ -52,13 +52,13 @@ let [weekInput, setWeekInput] = useState ({week:""});
                 name="week" 
                 placeholder="1" />
                 
-                <button className="btn btn-secondary" type="submit" onClick={() => handleGet(weekInput)}> View Schedule </button>
+                <button className="btn btn-primary" type="submit" onClick={() => handleGet(weekInput)}> View Schedule </button>
                 </div>
                 
            </div>
            
      
-        <div className="container mt-5 ">
+        <div className="container mt-5 rounded">
             <div className="row ">
            {  schedule.map(hour =>{
                     return(   
@@ -72,19 +72,7 @@ let [weekInput, setWeekInput] = useState ({week:""});
                             
                     );
                 })}
-                {/* { schedule.filter(item => item.day ="Monday").map(hour =>{
-                    return(
-                        <tr key={hour.id}>
-                            <th>Mon</th>
-                        <td>{hour.employee} {hour.day}<br/>
-                        Start: {hour.start} <br/> Finish: {hour.finish} 
-                        <br/>Hours: {hour.hour}
-                        <br/>
-                        <button  type="submit" onClick={()=>handleDelete(hour.id)}> delete </button></td>
-                        
-                    </tr>
-                    );
-                })} */}
+
                 
         </div>
         </div>
