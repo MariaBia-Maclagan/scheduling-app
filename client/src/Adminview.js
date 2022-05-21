@@ -63,10 +63,10 @@ let [weekInput, setWeekInput] = useState ({week:""});
            {  schedule.map(hour =>{
                     return(   
                         <div  className="col border rounded " key={hour.id}>
-                            <div className="mb-2 border-bottom">{hour.day} </div>
+                            <div className="mb-2 border-bottom"><strong>{hour.day}</strong> </div>
                             <div className="mb-1">{hour.employee}<br/></div>
-                            <div>Start: {hour.start} <br/> Finish: {hour.finish} </div>
-                            <div className="mb-1">Hrs: {hour.hour}</div>
+                            <div><strong>Start:</strong> {hour.start} <br/> <strong>Finish:</strong> {hour.finish} </div>
+                            <div className="mb-3"><strong>Hrs:</strong> {hour.hour}</div>
                             <button className="btn btn-outline-secondary btn-sm mb-2 " type="submit" onClick={()=>handleDelete(hour.id)}> delete </button>
                             </div>
                             
