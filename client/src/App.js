@@ -8,19 +8,19 @@ function App() {
 let [schedule, setSchedule] = useState ([]);
 let [isAdmin, setIsAdmin] = useState (true);
 
-useEffect(()=>{
-  getSchedule();
+// useEffect(()=>{
+//   getSchedule();
 
-}, []);
+// }, []);
 
-const getSchedule= () =>{
-  fetch("/hours")
-  .then(res => res.json())
-  .then(fullSchedule =>{
-    setSchedule(fullSchedule)
-  })
-  .catch(e =>{console.log(e)})
-}
+// const getSchedule= () =>{
+//   fetch("/hours")
+//   .then(res => res.json())
+//   .then(fullSchedule =>{
+//     setSchedule(fullSchedule)
+//   })
+//   .catch(e =>{console.log(e)})
+// }
 
 const handleChangeView =(isAdmin) => {
   setIsAdmin(isAdmin);
@@ -41,8 +41,8 @@ const handleChangeView =(isAdmin) => {
        <h1 className="text-center mt-5 mb-5">Scheduling App</h1>
       </header>
       
-     {isAdmin ? <Admin addSchedule={setSchedule}/> : <User schedule={schedule} setSchedule={setSchedule}/>  } 
-     {isAdmin ? <Adminview schedule={schedule} setSchedule={setSchedule} /> : ""}
+     {isAdmin ? <Admin addSchedule={setSchedule}/> : <User />  } 
+     {isAdmin ? <Adminview showSchedule={setSchedule} /> : ""}
      
     </div>
   );

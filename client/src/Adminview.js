@@ -2,13 +2,16 @@ import React, {useState} from "react";
 
 import './App.css';
 
-export default function Adminview({schedule, setSchedule}){
-let [weekInput, setWeekInput] = useState ({week:""});
+export default function Adminview(showSchedule){
+let [weekInput, setWeekInput] = useState ("");
+const [weekSchedule, setWeekSchedule] = useState([]);
 
     const handleSearch= (event) => {
-        // console.log(schedule)
-        setWeekInput(event.target.value)
-        
+       
+        let weekNumber = Number(event.target.value);
+        setWeekInput(weekNumber)
+        // console.log(weekInput)
+        // console.log(typeof weekInput)
     };
     
     const handleGet=(event) =>{
@@ -20,7 +23,9 @@ let [weekInput, setWeekInput] = useState ({week:""});
         fetch(`/hours/${week}`)
         .then(res => res.json())
         .then( response => {
-            setSchedule(response);
+            setWeekSchedule(response);
+            showSchedule(weekSchedule);
+        
         })
         
         .catch(e => console.log(e));
@@ -34,7 +39,7 @@ let [weekInput, setWeekInput] = useState ({week:""});
            }
        }) 
        .then(res => res.json())
-       .then(response => {setSchedule(response)})
+       .then(response => {setWeekSchedule(response)})
 
        .catch(e => console.log(e));
     }
@@ -60,7 +65,7 @@ let [weekInput, setWeekInput] = useState ({week:""});
      
         <div className="container mt-5 rounded">
             <div className="row ">
-           {  schedule.map(hour =>{
+           {  weekSchedule.map(hour =>{
                     return(   
                         <div  className="col border rounded " key={hour.id}>
                             <div className="mb-2 border-bottom"><strong>{hour.day}</strong> </div>

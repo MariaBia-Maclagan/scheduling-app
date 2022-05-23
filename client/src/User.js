@@ -2,27 +2,36 @@ import React, {useState} from "react";
 import './App.css';
 
 
-export default function User({schedule, setSchedule}){
-    let [weekInput, setWeekInput] = useState ({week:""});
-
-let handleUserSearch=(event)=>{
-    setWeekInput(event.target.value)
-};
-
-const handleUserGet=(event) =>{
-    //event.preventDefault();
-    getWeekSchedule(event);
-    setWeekInput("");
-}
-const getWeekSchedule =(week) => {
-    fetch(`/hours/${week}`)
-    .then(res => res.json())
-    .then( response => {
-        setSchedule(response);
-    })
+export default function User(){
+    let [weekInput, setWeekInput] = useState ("");
+    const [weekSchedule, setWeekSchedule] = useState([]);
     
-    .catch(e => console.log(e));
-}
+        const handleUserSearch= (event) => {
+           
+            let weekNumber = Number(event.target.value);
+            setWeekInput(weekNumber)
+            console.log(weekInput)
+            // console.log(typeof weekInput)
+        };
+        
+        const handleUserGet=(event) =>{
+            //event.preventDefault();
+            getWeekSchedule(event);
+            setWeekInput("");
+        }
+        const getWeekSchedule =(week) => {
+            fetch(`/hours/${week}`)
+            .then(res => res.json())
+            .then( response => {
+                setWeekSchedule(response);
+              
+            
+            })
+            
+            .catch(e => console.log(e));
+        }
+    
+      
     
     return(
         <div >
@@ -42,7 +51,7 @@ const getWeekSchedule =(week) => {
         </div>
         <div className="container rounded mt-5 ">
             <div className="row ">
-           {  schedule.map(hour =>{
+           {  weekSchedule.map(hour =>{
                     return(   
                         <div  className="col border rounded " key={hour.id}>
                             <div className="mb-2 border-bottom"><strong>{hour.day}</strong> </div>
