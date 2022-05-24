@@ -2,7 +2,7 @@ import React, {useState} from "react";
 
 import './App.css';
 
-export default function Adminview(showSchedule){
+export default function Adminview(){
 let [weekInput, setWeekInput] = useState ("");
 const [weekSchedule, setWeekSchedule] = useState([]);
 
@@ -24,7 +24,7 @@ const [weekSchedule, setWeekSchedule] = useState([]);
         .then(res => res.json())
         .then( response => {
             setWeekSchedule(response);
-            showSchedule(weekSchedule);
+            // showSchedule(weekSchedule);
         
         })
         
