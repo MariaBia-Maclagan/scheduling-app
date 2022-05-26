@@ -8,8 +8,8 @@ Other users should be able to only view the schedule times once posted in a sepa
 1- Create the database in the MySQL CLI, type `create database hours;`
 3- create `.env` file 
 
-DB_NAME = hours
-DB_PASS= YOUR_PASSWORD
+`DB_NAME = hours`
+`DB_PASS= YOUR_PASSWORD`
 
 2- Replace `YOUR_PASSWORD` with your actual password on `.env` file
 3- Run `node model/database.js` in your **TERMINAL** to create table schedule
