@@ -19,8 +19,8 @@ DB_PASS= YOUR_PASSWORD
 
 # Database Schema
 
-![](/../images/database.png)
+![](/images/database.png)
 
 # Routes
 
-![](/../images/routes.png)
+![](/images/routes.png)
