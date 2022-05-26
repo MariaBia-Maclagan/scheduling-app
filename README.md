@@ -5,16 +5,16 @@ Other users should be able to only view the schedule times once posted in a sepa
 
 # To run the app
 
-1- Create the database in the MySQL CLI, type `create database hours;`
-3- create `.env` file 
+1. Create the database in the MySQL CLI, type `create database hours;`
+2. create `.env` file 
 
 `DB_NAME = hours`
 `DB_PASS= YOUR_PASSWORD`
 
-2- Replace `YOUR_PASSWORD` with your actual password on `.env` file
-3- Run `node model/database.js` in your **TERMINAL** to create table schedule
+3. Replace `YOUR_PASSWORD` with your actual password on `.env` file
+4. Run `node model/database.js` in your **TERMINAL** to create table schedule
 
-4- Run `npm start` in project directory to start the Express server on port 5000
+5. Run `npm start` in project directory to start the Express server on port 5000
 - `cd client` and run `npm start` to start client server in development mode with hot reloading in port 3000.
 
 # Database Schema
