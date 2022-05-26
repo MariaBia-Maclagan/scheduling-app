@@ -6,7 +6,7 @@
 //     res.send("Welcome");
 //   });
 
-// router.get("/user/hours/:date", (req, res) => {
+// router.get("/hours/user/:date", (req, res) => {
 //   db(`SELECT * FROM schedule WHERE date="${req.params.date}";`) 
 //   .then(results =>{
 //     res.send(results.data);
@@ -14,7 +14,7 @@
 //   .catch(err => res.status(500).send(err));
 // });
 
-// router.get("/user/hours/:date/:employee", (req, res) => {
+// router.get("/hours/user/:date/:employee", (req, res) => {
 //   db(`SELECT * FROM schedule WHERE date="${req.params.date}" && employee="${req.params.employee}";`) 
 //   .then(results =>{
 //     res.send(results.data);
