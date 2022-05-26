@@ -5,7 +5,7 @@ Other users should be able to only view the schedule times once posted in a sepa
 
 # To run the app
 
-1- Create the database in the MySQL CLI, type `create database hours;` 
+1- Create the database in the MySQL CLI, type `create database hours;`
 3- create `.env` file 
 
 DB_NAME = hours
@@ -19,8 +19,8 @@ DB_PASS= YOUR_PASSWORD
 
 # Database Schema
 
-<img src="../images/database.png"/>
+![This is an image]../images/database.png
 
 # Routes
 
-<img src="../images/routes.png">
+![This is an image]../images/routes.png
